@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Omnius - Stream Everything</title>
-  <meta name="description" content="Stream movies, TV series, and live channels on your Android TV. Free, open-source, and beautiful.">
+  <title>Omnius - White-Label Streaming Platform for Providers</title>
+  <meta name="description" content="Deploy your own streaming platform on Android TV and macOS. White-label solution for IPTV providers, content distributors, and streaming services.">
   <meta name="theme-color" content="#141414">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23141414' width='100' height='100' rx='20'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='%23FF2D55'>O</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,6 +69,7 @@
     .nav-links {
       display: flex;
       gap: 32px;
+      align-items: center;
     }
 
     .nav-links a {
@@ -80,6 +81,20 @@
 
     .nav-links a:hover {
       color: #fff;
+    }
+
+    .nav-links .nav-cta {
+      color: #FF2D55;
+      border: 1px solid rgba(255, 45, 85, 0.4);
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .nav-links .nav-cta:hover {
+      background: rgba(255, 45, 85, 0.15);
+      color: #FF2D55;
     }
 
     /* Hero */
@@ -99,7 +114,7 @@
     }
 
     .hero-text h1 {
-      font-size: 64px;
+      font-size: 56px;
       font-weight: 800;
       line-height: 1.1;
       margin-bottom: 24px;
@@ -114,11 +129,12 @@
       -webkit-text-fill-color: #FF2D55;
     }
 
-    .hero-text p {
-      font-size: 20px;
+    .hero-text .hero-sub {
+      font-size: 18px;
       color: #888;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
       max-width: 500px;
+      line-height: 1.7;
     }
 
     .hero-features {
@@ -154,6 +170,9 @@
       font-weight: 600;
       text-decoration: none;
       transition: all 0.2s;
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
     }
 
     .btn-primary {
@@ -202,22 +221,65 @@
       opacity: 0.5;
     }
 
+    /* Stats */
+    .stats {
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 40px;
+      font-weight: 800;
+      color: #FF2D55;
+      margin-bottom: 8px;
+    }
+
+    .stat-item p {
+      color: #888;
+      font-size: 14px;
+    }
+
     /* Features */
     .features {
       padding: 120px 0;
+    }
+
+    .section-label {
+      text-align: center;
+      color: #FF2D55;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
     }
 
     .section-title {
       text-align: center;
       font-size: 48px;
       font-weight: 700;
-      margin-bottom: 60px;
+      margin-bottom: 20px;
+    }
+
+    .section-desc {
+      text-align: center;
+      color: #888;
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto 60px;
     }
 
     .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      gap: 24px;
     }
 
     .feature-card {
@@ -251,20 +313,280 @@
     }
 
     .feature-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: #888;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Screenshots */
+    .screenshots {
+      padding: 120px 0;
+      background: rgba(255, 255, 255, 0.02);
+      overflow: hidden;
+    }
+
+    .screenshots-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+
+    .screenshot-card {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s;
+    }
+
+    .screenshot-card:hover {
+      border-color: rgba(255, 45, 85, 0.4);
+      transform: translateY(-4px);
+    }
+
+    .screenshot-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .screenshot-card .caption {
+      padding: 16px;
+      background: rgba(20, 20, 20, 0.9);
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .screenshot-card .caption strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Admin Panel */
+    .admin-panel {
+      padding: 120px 0;
+    }
+
+    .admin-hero {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 40px;
+    }
+
+    .admin-hero img {
+      width: 100%;
+      display: block;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .admin-thumb {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s;
+    }
+
+    .admin-thumb:hover {
+      border-color: rgba(255, 45, 85, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .admin-thumb img {
+      width: 100%;
+      display: block;
+    }
+
+    .admin-thumb .caption {
+      padding: 10px 12px;
+      background: rgba(20, 20, 20, 0.95);
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .admin-thumb .caption strong {
+      color: #fff;
+      display: block;
+      font-size: 13px;
+    }
+
+    /* For Providers */
+    .providers {
+      padding: 120px 0;
+    }
+
+    .providers-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .providers-text h2 {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .providers-text h2 span {
+      color: #FF2D55;
+    }
+
+    .providers-text > p {
+      color: #888;
+      font-size: 16px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .provider-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 16px;
+    }
+
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: rgba(255, 45, 85, 0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .benefit-icon svg {
+      width: 20px;
+      height: 20px;
+      color: #FF2D55;
+    }
+
+    .benefit h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .benefit p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    .providers-visual {
+      position: relative;
+    }
+
+    .provider-card-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .p-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.3s;
+    }
+
+    .p-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 45, 85, 0.3);
+    }
+
+    .p-card-icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .p-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .p-card p {
+      color: #888;
+      font-size: 13px;
+    }
+
+    /* How it Works */
+    .how-it-works {
+      padding: 120px 0;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 40px 24px;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      background: rgba(255, 45, 85, 0.2);
+      border: 2px solid #FF2D55;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 800;
+      color: #FF2D55;
+      margin: 0 auto 24px;
+    }
+
+    .step h3 {
       font-size: 20px;
       font-weight: 600;
       margin-bottom: 12px;
     }
 
-    .feature-card p {
+    .step p {
       color: #888;
-      font-size: 15px;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     /* Downloads */
     .downloads {
       padding: 120px 0;
-      background: rgba(255, 255, 255, 0.02);
     }
 
     .downloads-grid {
@@ -334,6 +656,35 @@
       color: #fff;
     }
 
+    /* CTA */
+    .cta {
+      padding: 120px 0;
+      background: radial-gradient(ellipse at center, rgba(255, 45, 85, 0.1) 0%, transparent 70%);
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: #888;
+      font-size: 18px;
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     /* Footer */
     footer {
       padding: 60px 0;
@@ -391,11 +742,15 @@
       }
 
       .hero-text h1 {
-        font-size: 48px;
+        font-size: 42px;
       }
 
-      .hero-text p {
-        margin: 0 auto 40px;
+      .hero-text .hero-sub {
+        margin: 0 auto 32px;
+      }
+
+      .hero-features {
+        justify-content: center;
       }
 
       .hero-buttons {
@@ -408,22 +763,64 @@
         margin: 0 auto;
       }
 
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+
       .features-grid {
         grid-template-columns: 1fr;
+      }
+
+      .screenshots-row {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 60px auto 0;
+      }
+
+      .admin-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .providers-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 60px auto 0;
       }
 
       .downloads-grid {
         grid-template-columns: 1fr;
       }
+
+      .section-title {
+        font-size: 36px;
+      }
+
+      .cta h2 {
+        font-size: 36px;
+      }
     }
 
     @media (max-width: 600px) {
       .hero-text h1 {
-        font-size: 36px;
+        font-size: 32px;
       }
 
       .nav-links {
         display: none;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat-item h3 {
+        font-size: 32px;
       }
 
       footer .container {
@@ -449,8 +846,11 @@
       </a>
       <nav class="nav-links">
         <a href="#features">Features</a>
+        <a href="#providers">For Providers</a>
+        <a href="#admin">Admin Panel</a>
         <a href="#download">Download</a>
         <a href="https://github.com/CoolEntertainmentRepos/omnius">GitHub</a>
+        <a href="mailto:hello@omnius.lol" class="nav-cta">Contact Us</a>
       </nav>
     </div>
   </header>
@@ -459,19 +859,21 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <h1>Stream<span>,</span> Everything!</h1>
+          <h1>Your <span>Streaming Platform</span>, Ready to Launch</h1>
           <p class="hero-features">
             <span class="feature-tag">Movies</span>
             <span class="feature-tag">TV Series</span>
             <span class="feature-tag">Live Channels</span>
+            <span class="feature-tag">Android TV</span>
+            <span class="feature-tag">macOS</span>
           </p>
-          <p>A beautiful streaming app for your Android TV. Free, open-source, and packed with features.</p>
+          <p class="hero-sub">White-label streaming solution for providers. Deploy a fully-featured, production-ready client app for your content library in minutes.</p>
           <div class="hero-buttons">
-            <a href="#download" class="btn btn-primary">
+            <a href="#providers" class="btn btn-primary">
               <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
               </svg>
-              Download App
+              Get Started
             </a>
             <a href="https://github.com/CoolEntertainmentRepos/omnius" class="btn btn-secondary">
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -488,9 +890,34 @@
     </div>
   </section>
 
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>12+</h3>
+          <p>Core Features</p>
+        </div>
+        <div class="stat-item">
+          <h3>60+</h3>
+          <p>Subtitle Languages</p>
+        </div>
+        <div class="stat-item">
+          <h3>2</h3>
+          <p>Platforms</p>
+        </div>
+        <div class="stat-item">
+          <h3>MIT</h3>
+          <p>Open Source License</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="features" id="features">
     <div class="container">
-      <h2 class="section-title">Features</h2>
+      <p class="section-label">Features</p>
+      <h2 class="section-title">Everything Your Users Expect</h2>
+      <p class="section-desc">A complete streaming experience out of the box. No compromises on UX, no features missing.</p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">
@@ -498,8 +925,8 @@
               <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/>
             </svg>
           </div>
-          <h3>Beautiful UI</h3>
-          <p>Beautiful, familiar interface optimized for TV screens with smooth animations and intuitive navigation.</p>
+          <h3>TV-Optimized UI</h3>
+          <p>Beautiful, familiar interface built with Jetpack Compose for TV. Smooth animations, hero banners, and card-based browsing.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
@@ -508,7 +935,7 @@
             </svg>
           </div>
           <h3>D-pad Navigation</h3>
-          <p>Full remote control support for Android TV. Navigate effortlessly with your TV remote.</p>
+          <p>Full remote control support for Android TV. Navigate the entire app effortlessly with a standard TV remote.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
@@ -516,8 +943,8 @@
               <path d="M8 5v14l11-7z"/>
             </svg>
           </div>
-          <h3>In-app Streaming</h3>
-          <p>Watch movies directly without leaving the app. Built-in video player with full playback controls.</p>
+          <h3>In-App Player</h3>
+          <p>Built-in ExoPlayer with HLS, DASH, and torrent streaming. Full playback controls, seek, and quality selection.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
@@ -526,7 +953,25 @@
             </svg>
           </div>
           <h3>Subtitles</h3>
-          <p>Auto-load subtitles in 60+ languages. Never miss a word with our SubDL integration.</p>
+          <p>Auto-load subtitles in 60+ languages. SubDL integration with language preferences and auto-selection.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+            </svg>
+          </div>
+          <h3>Continue Watching</h3>
+          <p>Resume where you left off. Automatic progress tracking with a dedicated home screen row for partially-watched content.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <h3>Favorites</h3>
+          <p>Users can save their favorite movies and series for quick access. Persistent across app restarts.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
@@ -535,7 +980,7 @@
             </svg>
           </div>
           <h3>Search & Browse</h3>
-          <p>Find movies by title, genre, or rating. Discover new content with smart recommendations.</p>
+          <p>Find content by title, genre, or rating. Browse by category with lazy-loaded grids and infinite scroll.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
@@ -544,7 +989,258 @@
             </svg>
           </div>
           <h3>Live TV</h3>
-          <p>Watch live channels from around the world. Thousands of channels organized by country and category.</p>
+          <p>Thousands of live channels organized by country and category. Built-in EPG-style browsing with instant playback.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+          </div>
+          <h3>Series & Episodes</h3>
+          <p>Full TV series support with seasons, episodes, and per-episode progress tracking. Watched indicators and resume points.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+            </svg>
+          </div>
+          <h3>P2P Streaming</h3>
+          <p>Built-in torrent engine (libtorrent4j) for peer-to-peer content delivery. Reduces server bandwidth costs.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+            </svg>
+          </div>
+          <h3>Configurable Server</h3>
+          <p>Point the app to your own API backend. Configurable server URL means you control the content catalog entirely.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3>Watch History</h3>
+          <p>Automatic tracking of everything watched. Progress bars on thumbnails, watched indicators, and smart resume points.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="screenshots">
+    <div class="container">
+      <p class="section-label">Client App</p>
+      <h2 class="section-title">See It in Action</h2>
+      <p class="section-desc">Designed for the living room. Every screen is optimized for TV displays and remote control navigation.</p>
+      <div class="screenshots-row">
+        <div class="screenshot-card">
+          <img src="screenshots/home.webp" alt="Home Screen" loading="lazy">
+          <div class="caption">
+            <strong>Home Screen</strong>
+            Hero banners, continue watching, trending content
+          </div>
+        </div>
+        <div class="screenshot-card">
+          <img src="screenshots/movie-details.webp" alt="Movie Details" loading="lazy">
+          <div class="caption">
+            <strong>Movie Details</strong>
+            Full metadata, ratings, torrents, play actions
+          </div>
+        </div>
+        <div class="screenshot-card">
+          <img src="screenshots/player.webp" alt="Video Player" loading="lazy">
+          <div class="caption">
+            <strong>Video Player</strong>
+            ExoPlayer with subtitles, seek, and quality controls
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="admin-panel" id="admin">
+    <div class="container">
+      <p class="section-label">Admin Panel</p>
+      <h2 class="section-title">Full Control Over Your Content</h2>
+      <p class="section-desc">A built-in web admin panel to manage movies, TV shows, live channels, curated lists, and home screen layout. No code needed.</p>
+      <div class="admin-hero">
+        <img src="screenshots/admin-home-sections.webp" alt="Admin Panel - Home Sections" loading="lazy">
+      </div>
+      <div class="admin-grid">
+        <div class="admin-thumb">
+          <img src="screenshots/admin-movies.webp" alt="Manage Movies" loading="lazy">
+          <div class="caption">
+            <strong>Movies</strong>
+            Add, edit, manage torrents and ratings
+          </div>
+        </div>
+        <div class="admin-thumb">
+          <img src="screenshots/admin-tvshows.webp" alt="Manage TV Shows" loading="lazy">
+          <div class="caption">
+            <strong>TV Shows</strong>
+            Seasons, episodes, status tracking
+          </div>
+        </div>
+        <div class="admin-thumb">
+          <img src="screenshots/admin-live-channels.webp" alt="Live Channels" loading="lazy">
+          <div class="caption">
+            <strong>Live Channels</strong>
+            8,600+ channels, M3U sync, health checks
+          </div>
+        </div>
+        <div class="admin-thumb">
+          <img src="screenshots/admin-curated-lists.webp" alt="Curated Lists" loading="lazy">
+          <div class="caption">
+            <strong>Curated Lists</strong>
+            Custom collections with filters and sorting
+          </div>
+        </div>
+        <div class="admin-thumb">
+          <img src="screenshots/admin-tvshow-detail.webp" alt="TV Show Detail" loading="lazy">
+          <div class="caption">
+            <strong>Show Detail</strong>
+            IMDB refresh, episodes, metadata editing
+          </div>
+        </div>
+        <div class="admin-thumb">
+          <img src="screenshots/admin-api-docs.webp" alt="API Documentation" loading="lazy">
+          <div class="caption">
+            <strong>API Docs</strong>
+            Built-in REST API documentation
+          </div>
+        </div>
+        <div class="admin-thumb">
+          <img src="screenshots/admin-login.webp" alt="Admin Login" loading="lazy">
+          <div class="caption">
+            <strong>Secure Login</strong>
+            Password-protected admin access
+          </div>
+        </div>
+        <div class="admin-thumb">
+          <img src="screenshots/settings.webp" alt="App Settings" loading="lazy">
+          <div class="caption">
+            <strong>App Settings</strong>
+            Configurable server URL and preferences
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="providers" id="providers" style="padding-top: 0;">
+    <div class="container">
+      <div class="providers-content">
+        <div class="providers-text">
+          <p class="section-label" style="text-align: left;">For Providers</p>
+          <h2>Launch Your <span>Streaming Service</span> Without Building From Scratch</h2>
+          <p>Omnius gives IPTV providers, content distributors, and streaming services a production-ready client app and admin backend. Point it at your content, apply your branding, and ship.</p>
+          <div class="provider-benefits">
+            <div class="benefit">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              </div>
+              <div>
+                <h4>Ship in Days, Not Months</h4>
+                <p>Skip the 6-month development cycle. Client apps + admin panel + API, all ready to go.</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+              </div>
+              <div>
+                <h4>Admin Panel Included</h4>
+                <p>Web-based dashboard to manage movies, series, live channels, curated lists, and home screen sections. No code required.</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+              </div>
+              <div>
+                <h4>Multi-Platform Clients</h4>
+                <p>Android TV (Kotlin + Compose) and macOS (Tauri + Svelte). One API serves both platforms.</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <div>
+                <h4>Open Source, MIT Licensed</h4>
+                <p>No licensing fees, no vendor lock-in. Fork it, brand it, extend it. Full source code access.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="providers-visual">
+          <div class="provider-card-stack">
+            <div class="p-card">
+              <div class="p-card-icon" style="background: rgba(255, 45, 85, 0.15);">
+                <svg viewBox="0 0 24 24" fill="#FF2D55" width="24" height="24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+              </div>
+              <div>
+                <h4>IPTV Providers</h4>
+                <p>Replace generic players with a branded, premium app experience for your subscribers.</p>
+              </div>
+            </div>
+            <div class="p-card">
+              <div class="p-card-icon" style="background: rgba(88, 166, 255, 0.15);">
+                <svg viewBox="0 0 24 24" fill="#58A6FF" width="24" height="24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg>
+              </div>
+              <div>
+                <h4>Content Distributors</h4>
+                <p>Deliver your movie and series catalog through a polished, user-friendly interface.</p>
+              </div>
+            </div>
+            <div class="p-card">
+              <div class="p-card-icon" style="background: rgba(63, 185, 80, 0.15);">
+                <svg viewBox="0 0 24 24" fill="#3FB950" width="24" height="24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+              <div>
+                <h4>Streaming Startups</h4>
+                <p>Launch your service faster. Focus on content acquisition, not app development.</p>
+              </div>
+            </div>
+            <div class="p-card">
+              <div class="p-card-icon" style="background: rgba(210, 153, 34, 0.15);">
+                <svg viewBox="0 0 24 24" fill="#D29922" width="24" height="24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+              </div>
+              <div>
+                <h4>Hotels & Hospitality</h4>
+                <p>Deploy in-room entertainment on Android TV boxes with your own curated content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how">
+    <div class="container">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">Three Steps to Launch</h2>
+      <p class="section-desc">From fork to live in production. No complex infrastructure needed.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Fork & Brand</h3>
+          <p>Clone the repo, replace the logo and colors, configure your server URL. The app is fully white-label ready.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Connect Your API</h3>
+          <p>Point the app at your content API. Omnius expects a simple REST API for movies, series, and live channels.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Deploy</h3>
+          <p>Build the APK for Android TV, the DMG for macOS, and distribute to your users. Sideload or publish to stores.</p>
         </div>
       </div>
     </div>
@@ -552,7 +1248,9 @@
 
   <section class="downloads" id="download">
     <div class="container">
-      <h2 class="section-title">Download</h2>
+      <p class="section-label">Download</p>
+      <h2 class="section-title">Try It Now</h2>
+      <p class="section-desc">Download the reference build to see the full experience on your device.</p>
       <p style="text-align: center; margin-bottom: 32px;">
         <a href="https://github.com/CoolEntertainmentRepos/omnius/releases" style="color: #FF2D55; text-decoration: none; font-size: 15px;">View all releases on GitHub &rarr;</a>
       </p>
@@ -599,6 +1297,27 @@
             </a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to Launch Your Platform?</h2>
+      <p>Get started with Omnius today. Open source, no licensing fees, ship on your timeline.</p>
+      <div class="cta-buttons">
+        <a href="https://github.com/CoolEntertainmentRepos/omnius" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          Fork on GitHub
+        </a>
+        <a href="mailto:hello@omnius.lol" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          Contact Us
+        </a>
       </div>
     </div>
   </section>
