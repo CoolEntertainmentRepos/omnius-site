@@ -1223,22 +1223,62 @@
     <div class="container">
       <p class="section-label">How It Works</p>
       <h2 class="section-title">Three Steps to Launch</h2>
-      <p class="section-desc">From fork to live in production. No complex infrastructure needed.</p>
+      <p class="section-desc">From purchase to live in production. No complex infrastructure needed.</p>
       <div class="steps">
         <div class="step">
           <div class="step-number">1</div>
-          <h3>Purchase & Deploy</h3>
-          <p>Choose your plan, get the server and client apps. Deploy the backend on your own infrastructure.</p>
+          <h3>Get Your License</h3>
+          <p>Choose your plan and receive a license key in the format <code style="color: #FF2D55; background: rgba(255,45,85,0.15); padding: 2px 8px; border-radius: 4px;">OMNI-XXXX-XXXX-XXXX-XXXX</code>. Each key is tied to your plan's deployment limit.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
-          <h3>Connect Your API</h3>
-          <p>Point the app at your content API. Omnius expects a simple REST API for movies, series, and live channels.</p>
+          <h3>Deploy the Server</h3>
+          <p>Run the Omnius server binary with your license key. It validates automatically on startup and sends periodic heartbeats.</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h3>Deploy</h3>
-          <p>Build the APK for Android TV, the DMG for macOS, and distribute to your users. Sideload or publish to stores.</p>
+          <h3>Go Live</h3>
+          <p>Point the Android TV and macOS client apps at your server URL. Your streaming platform is ready for users.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="setup" style="background: transparent;">
+    <div class="container">
+      <p class="section-label">Setup Guide</p>
+      <h2 class="section-title">Deploy in Minutes</h2>
+      <p class="section-desc">Set your license key as an environment variable and you're ready to go.</p>
+      <div style="max-width: 700px; margin: 40px auto 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; text-align: left;">
+        <p style="color: #888; font-size: 13px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Docker / Docker Compose</p>
+        <pre style="background: #0d1117; padding: 20px; border-radius: 10px; overflow-x: auto; font-size: 14px; line-height: 1.8; border: 1px solid rgba(255,255,255,0.08);"><code><span style="color:#888;"># Run with your license key</span>
+<span style="color:#79c0ff;">docker run</span> -d \
+  -e <span style="color:#FF2D55;">LICENSE_KEY</span>=<span style="color:#a5d6ff;">OMNI-XXXX-XXXX-XXXX-XXXX</span> \
+  -v omnius-data:/app/data \
+  -p 8080:8080 \
+  omnius/server:latest</code></pre>
+
+        <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08);">
+          <p style="color: #888; font-size: 13px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Environment Variables</p>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; justify-content: space-between; padding: 10px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;">
+              <code style="color: #FF2D55;">LICENSE_KEY</code>
+              <span style="color: #888; font-size: 13px;">Your license key (required)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 10px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;">
+              <code style="color: #79c0ff;">ADMIN_PASSWORD</code>
+              <span style="color: #888; font-size: 13px;">Admin panel password</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 10px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;">
+              <code style="color: #79c0ff;">PORT</code>
+              <span style="color: #888; font-size: 13px;">Server port (default: 8080)</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; padding: 16px; background: rgba(255,45,85,0.08); border: 1px solid rgba(255,45,85,0.2); border-radius: 10px;">
+          <p style="color: #FF2D55; font-weight: 600; font-size: 14px; margin-bottom: 4px;">No license key?</p>
+          <p style="color: #888; font-size: 13px;">The server runs in demo mode with limited features: 10 movies, 2 series, no live channels.</p>
         </div>
       </div>
     </div>
@@ -1248,7 +1288,7 @@
     <div class="container">
       <p class="section-label">Pricing</p>
       <h2 class="section-title">One-Time Purchase</h2>
-      <p class="section-desc">No subscriptions, no recurring fees. Pay once, own the full source code forever.</p>
+      <p class="section-desc">No subscriptions, no recurring fees. Pay once, get a license key, deploy instantly.</p>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto;">
         <div class="download-card">
           <h3 style="margin-bottom: 4px;">Personal</h3>
@@ -1258,25 +1298,26 @@
             <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Server + Admin Panel</p>
             <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Android TV + macOS apps</p>
             <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">All features included</p>
-            <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">1 deployment</p>
-            <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Personal use</p>
+            <p style="color: #fff; font-size: 13px; text-align: left; padding: 0 8px; font-weight: 600;">1 deployment license key</p>
+            <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Personal use only</p>
             <a href="mailto:hello@omnius.lol?subject=Omnius Personal License" style="margin-top: 8px;">
-              Buy Personal
+              Get License Key
             </a>
           </div>
         </div>
         <div class="download-card" style="border-color: rgba(255, 45, 85, 0.4);">
-          <h3 style="margin-bottom: 4px;">Pro</h3>
+          <p style="color: #FF2D55; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Most Popular</p>
+          <h3 style="margin-bottom: 4px;">Business</h3>
           <p style="font-size: 48px; font-weight: 800; color: #FF2D55; margin-bottom: 8px;">$299</p>
           <p style="margin-bottom: 24px;">one-time payment</p>
           <div class="download-links">
             <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Everything in Personal</p>
-            <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Unlimited deployments</p>
+            <p style="color: #fff; font-size: 13px; text-align: left; padding: 0 8px; font-weight: 600;">5 deployment license keys</p>
             <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Priority email support</p>
-            <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Commercial use</p>
+            <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Commercial use allowed</p>
             <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Future updates included</p>
-            <a href="mailto:hello@omnius.lol?subject=Omnius Pro License" style="margin-top: 8px;">
-              Buy Pro
+            <a href="mailto:hello@omnius.lol?subject=Omnius Business License" style="margin-top: 8px;">
+              Get License Key
             </a>
           </div>
         </div>
@@ -1286,7 +1327,7 @@
           <p style="margin-bottom: 24px;">contact us</p>
           <div class="download-links">
             <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Custom-branded builds</p>
-            <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Your logo, colors, app name</p>
+            <p style="color: #fff; font-size: 13px; text-align: left; padding: 0 8px; font-weight: 600;">Unlimited deployments</p>
             <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">White-label APK + server</p>
             <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Dedicated support</p>
             <p style="color: #aaa; font-size: 13px; text-align: left; padding: 0 8px;">Custom feature development</p>
