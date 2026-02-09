@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://omnius.lol/sitemap.xml
+Sitemap: https://omnius.stream/sitemap.xml
